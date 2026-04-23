@@ -1,6 +1,6 @@
 # CST8915 Final Project: Cloud-Native App for Best Buy
 
-## Application Overview
+## 1. Application Overview
 
 
 This project is a cloud-native, microservices-based retail application that resembles Best Buy’s website. The application allows customers to browse products and place orders, while employees can manage products and monitor operations from the admin interface.
@@ -12,21 +12,6 @@ The database utilized for storing the products and orders is a MongoDB database 
 Additionally, the software makes use of a CI/CD pipeline that uses GitHub Actions to automate the building, testing, and deployment processes for each microservice.
 
 Overall, the application demonstrates modern cloud-native design principles, including microservices architecture, containerization, and automated deployment.
-
-# Best Buy Cloud-Native Application - Deployment & CI/CD Documentation
-
-## 1. Application Overview
-This is a polyglot microservices application designed to simulate a modern e-commerce platform. It is fully containerized and orchestrated by **Azure Kubernetes Service (AKS)**. The architecture is designed for high availability and decoupled communication.
-
-### Core Microservices
-* **Store Front (Vue.js):** The customer-facing web application for browsing products and placing orders.
-* **Store Admin (Web):** An internal dashboard for employees to manage inventory and monitor the "Makeline" status.
-* **Order Service (Node.js):** Handles the checkout process and manages the initial order lifecycle.
-* **Product Service (Rust):** A high-performance service managing the product catalog.
-* **Makeline Service (Go):** An event-driven worker that consumes orders from the queue and saves them to the database.
-* **Backing Services:** **RabbitMQ** (Message Broker) and **MongoDB** (Persistence).
-
----
 
 ## 2. Deployment Instructions
 
