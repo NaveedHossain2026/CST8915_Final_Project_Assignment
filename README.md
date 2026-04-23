@@ -15,13 +15,6 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 
 ## 2. Deployment Instructions
 
-### Prerequisites
-* An active AKS Cluster.
-* `kubectl` configured on your local machine.
-* Kubernetes Secret for RabbitMQ:
-    ```powershell
-    kubectl create secret generic rabbit-secrets --from-literal=password=password123
-    ```
 
 ### Deployment Steps
 1.  **Prepare the Manifest:** Use the `aps-all-in-one.yaml` file which contains the configurations for all services, statefulsets, and configmaps.
