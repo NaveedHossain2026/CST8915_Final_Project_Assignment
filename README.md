@@ -57,3 +57,7 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 | **Makeline Service** | [makeline-service](https://github.com/NaveedHossain2026/makeline-service-L8) |https://hub.docker.com/r/naveedhossain/makeline-service |
 
 ---
+
+## AI Tools Disclosure
+
+### AI Tools Used
