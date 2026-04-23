@@ -35,7 +35,7 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 
 ---
 
-## 4. Resource Links Table
+## 3. Resource Links Table
 
 | Service Name | GitHub Repository | Docker Hub / ACR Image |
 | :--- | :--- | :--- |
