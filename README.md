@@ -41,7 +41,7 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 | :--- | :--- | :--- |
 | **Store Front** | [store-front](https://github.com/NaveedHossain2026/store-front-L8) | https://hub.docker.com/r/naveedhossain/store-front |
 | **Store Admin** | [store-admin](https://github.com/NaveedHossain2026/store-admin-L8) |https://hub.docker.com/r/naveedhossain/store-admin|
-| **Order Service** | [order-service-L8](https://github.com/NaveedHossain2026/order-service-L8) | `naveedhossain/order-service:latest` |
+| **Order Service** | [order-service-L8](https://github.com/NaveedHossain2026/order-service-L8) |https://hub.docker.com/r/naveedhossain/order-service |
 | **Product Service** | [product-service](https://github.com/NaveedHossain2026/product-service-L8) | `naveedhossain/product-service:latest` |
 | **Makeline Service** | [makeline-service](https://github.com/NaveedHossain2026/makeline-service-L8) | `naveedhossain/makeline-service:latest` |
 
