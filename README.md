@@ -17,8 +17,8 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 
 
 ### Deployment Steps
-1.  **Prepare the Manifest:** Use the `aps-all-in-one.yaml` file which contains the configurations for all services, statefulsets, and configmaps.
-2.  **Apply the Manifest:**
+1.  **Prepare the Kubernetes YAML manifest:** Use the `aps-all-in-one.yaml` file which contains the configurations for all services, statefulsets, and configmaps.
+2.  **Apply the Kubernetes YAML manifest:**
     ```powershell
     kubectl apply -f aps-all-in-one.yaml
     ```
