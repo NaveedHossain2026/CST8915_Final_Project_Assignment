@@ -12,3 +12,76 @@ The database utilized for storing the products and orders is a MongoDB database 
 Additionally, the software makes use of a CI/CD pipeline that uses GitHub Actions to automate the building, testing, and deployment processes for each microservice.
 
 Overall, the application demonstrates modern cloud-native design principles, including microservices architecture, containerization, and automated deployment.
+
+# Best Buy Cloud-Native Application - Deployment & CI/CD Documentation
+
+## 1. Application Overview
+This is a polyglot microservices application designed to simulate a modern e-commerce platform. It is fully containerized and orchestrated by **Azure Kubernetes Service (AKS)**. The architecture is designed for high availability and decoupled communication.
+
+### Core Microservices
+* **Store Front (Vue.js):** The customer-facing web application for browsing products and placing orders.
+* **Store Admin (Web):** An internal dashboard for employees to manage inventory and monitor the "Makeline" status.
+* **Order Service (Node.js):** Handles the checkout process and manages the initial order lifecycle.
+* **Product Service (Rust):** A high-performance service managing the product catalog.
+* **Makeline Service (Go):** An event-driven worker that consumes orders from the queue and saves them to the database.
+* **Backing Services:** **RabbitMQ** (Message Broker) and **MongoDB** (Persistence).
+
+---
+
+## 2. Deployment Instructions
+
+### Prerequisites
+* An active AKS Cluster.
+* `kubectl` configured on your local machine.
+* Kubernetes Secret for RabbitMQ:
+    ```powershell
+    kubectl create secret generic rabbit-secrets --from-literal=password=password123
+    ```
+
+### Deployment Steps
+1.  **Prepare the Manifest:** Use the `aps-all-in-one.yaml` file which contains the configurations for all services, statefulsets, and configmaps.
+2.  **Apply the Manifest:**
+    ```powershell
+    kubectl apply -f aps-all-in-one.yaml
+    ```
+3.  **Verify Pod Status:**
+    Ensure all pods, especially infrastructure pods like `mongodb-0` and `rabbitmq-0`, are healthy:
+    ```powershell
+    kubectl get pods
+    ```
+4.  **Access the Application:**
+    Retrieve the External IPs for the frontend services:
+    ```powershell
+    kubectl get service store-front store-admin
+    ```
+
+---
+
+## 3. CI/CD Pipeline Implementation
+The CI/CD pipeline is implemented using **GitHub Actions**. Each service has a dedicated repository and workflow that automates the build, push, and deployment process.
+
+### GitHub Secrets Configuration
+To enable the pipeline, the following secrets must be added to each repository:
+* `DOCKER_USERNAME`: Your Docker Hub ID.
+* `DOCKER_PASSWORD`: Your Docker Hub Personal Access Token.
+* `KUBE_CONFIG`: The content of your `~/.kube/config` file.
+
+### Pipeline Workflow
+1.  **Trigger:** Automatic execution on every `push` to the `main` branch.
+2.  **Build:** Creates a fresh Docker image from the source code.
+3.  **Push:** Uploads the image to Docker Hub or Azure Container Registry.
+4.  **Deploy:** Authenticates with AKS using the `KUBE_CONFIG` and performs a `kubectl rollout restart` to deploy the new image with zero downtime.
+
+---
+
+## 4. Resource Links Table
+
+| Service Name | GitHub Repository | Docker Hub / ACR Image |
+| :--- | :--- | :--- |
+| **Store Front** | [store-front](https://github.com/NaveedHossain2026/store-front) | `naveedstore.azurecr.io/store-front:latest` |
+| **Store Admin** | [store-admin](https://github.com/NaveedHossain2026/store-admin) | `naveedhossain/store-admin:latest` |
+| **Order Service** | [order-service-L8](https://github.com/NaveedHossain2026/order-service-L8) | `naveedhossain/order-service:latest` |
+| **Product Service** | [product-service](https://github.com/NaveedHossain2026/product-service) | `naveedhossain/product-service:latest` |
+| **Makeline Service** | [makeline-service](https://github.com/NaveedHossain2026/makeline-service) | `naveedhossain/makeline-service:latest` |
+
+---
