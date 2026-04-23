@@ -17,7 +17,7 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 
 
 ### Deployment Steps
-1.  **Prepare the Kubernetes YAML manifest:** Use the `aps-all-in-one.yaml` file which contains the configurations for all services, statefulsets, and configmaps.
+1.  **Prepare the Kubernetes YAML manifest:** Use the `aps-all-in-one.yaml` file, which contains the configurations for all services, statefulsets, and configmaps.
 2.  **Apply the Kubernetes YAML manifest:**
     ```powershell
     kubectl apply -f aps-all-in-one.yaml
@@ -39,10 +39,10 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 
 | Service Name | GitHub Repository | Docker Hub / ACR Image |
 | :--- | :--- | :--- |
-| **Store Front** | [store-front](https://github.com/NaveedHossain2026/store-front) | `naveedstore.azurecr.io/store-front:latest` |
-| **Store Admin** | [store-admin](https://github.com/NaveedHossain2026/store-admin) | `naveedhossain/store-admin:latest` |
+| **Store Front** | [store-front](https://github.com/NaveedHossain2026/store-front-L8) | `naveedstore.azurecr.io/store-front:latest` |
+| **Store Admin** | [store-admin](https://github.com/NaveedHossain2026/store-admin-L8) | `naveedhossain/store-admin:latest` |
 | **Order Service** | [order-service-L8](https://github.com/NaveedHossain2026/order-service-L8) | `naveedhossain/order-service:latest` |
-| **Product Service** | [product-service](https://github.com/NaveedHossain2026/product-service) | `naveedhossain/product-service:latest` |
-| **Makeline Service** | [makeline-service](https://github.com/NaveedHossain2026/makeline-service) | `naveedhossain/makeline-service:latest` |
+| **Product Service** | [product-service](https://github.com/NaveedHossain2026/product-service-L8) | `naveedhossain/product-service:latest` |
+| **Makeline Service** | [makeline-service](https://github.com/NaveedHossain2026/makeline-service-L8) | `naveedhossain/makeline-service:latest` |
 
 ---
