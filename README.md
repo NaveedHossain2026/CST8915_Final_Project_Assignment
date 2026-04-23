@@ -1,5 +1,9 @@
 # CST8915 Final Project: Cloud-Native App for Best Buy
 
+### Student Name: Naveed Hossain
+
+### Student ID: 041081882
+
 ## 1. Application Overview
 
 
