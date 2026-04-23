@@ -37,7 +37,7 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 
 ## 3. Resource Links Table
 
-| Service Name | GitHub Repository | Docker Hub / ACR Image |
+| Service Name | GitHub Repository | Docker Hub Image Link |
 | :--- | :--- | :--- |
 | **Store Front** | [store-front](https://github.com/NaveedHossain2026/store-front-L8) | https://hub.docker.com/r/naveedhossain/store-front |
 | **Store Admin** | [store-admin](https://github.com/NaveedHossain2026/store-admin-L8) |https://hub.docker.com/r/naveedhossain/store-admin|
