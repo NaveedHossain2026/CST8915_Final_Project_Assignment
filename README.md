@@ -11,6 +11,8 @@ https://youtu.be/d9siFVTye4U
 
 ## Application Overview
 
+![image alt](https://github.com/NaveedHossain2026/rideau-canal-monitoring/blob/41bc77b6cee391f5d69f767bd3286089e089c81a/screenshots/08-dashboard-azure.png)
+
 
 This project is a cloud-native, microservices-based retail application that resembles Best Buy’s website. The application allows customers to browse products and place orders, while employees can manage products and monitor operations from the admin interface.
 
