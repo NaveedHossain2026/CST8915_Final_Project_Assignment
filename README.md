@@ -35,23 +35,6 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 
 ---
 
-## 3. CI/CD Pipeline Implementation
-The CI/CD pipeline is implemented using **GitHub Actions**. Each service has a dedicated repository and workflow that automates the build, push, and deployment process.
-
-### GitHub Secrets Configuration
-To enable the pipeline, the following secrets must be added to each repository:
-* `DOCKER_USERNAME`: Your Docker Hub ID.
-* `DOCKER_PASSWORD`: Your Docker Hub Personal Access Token.
-* `KUBE_CONFIG`: The content of your `~/.kube/config` file.
-
-### Pipeline Workflow
-1.  **Trigger:** Automatic execution on every `push` to the `main` branch.
-2.  **Build:** Creates a fresh Docker image from the source code.
-3.  **Push:** Uploads the image to Docker Hub or Azure Container Registry.
-4.  **Deploy:** Authenticates with AKS using the `KUBE_CONFIG` and performs a `kubectl rollout restart` to deploy the new image with zero downtime.
-
----
-
 ## 4. Resource Links Table
 
 | Service Name | GitHub Repository | Docker Hub / ACR Image |
