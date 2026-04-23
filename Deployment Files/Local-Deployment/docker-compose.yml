@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:4.2
+    ports:
+      - "27017:27017"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=username
+      - RABBITMQ_DEFAULT_PASS=password
+    # This command enables the 1.0 protocol and then starts the server
+    command: >
+      sh -c "rabbitmq-plugins enable rabbitmq_amqp1_0 && rabbitmq-server"
+
+  product-service:
+    image: naveedhossain/product-service:latest
+    ports:
+      - "3002:3002"
+    depends_on:
+      - mongodb
+
+  order-service:
+    image: naveedhossain/order-service:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - ORDER_QUEUE_HOSTNAME=rabbitmq
+      - ORDER_QUEUE_PORT=5672
+      - ORDER_QUEUE_USERNAME=username
+      - ORDER_QUEUE_PASSWORD=password
+      - ORDER_QUEUE_NAME=orders  # <--- ADD THIS LINE
+    depends_on:
+      - rabbitmq
+
+  makeline-service:
+    image: naveedhossain/makeline-service:latest
+    ports:
+      - "3001:3001"
+    environment:
+      - ORDER_QUEUE_URI=amqp://username:password@rabbitmq:5672
+      - ORDER_QUEUE_NAME=orders
+      - ORDER_QUEUE_PASSWORD=password  # <--- ADD THIS LINE
+      - ORDER_DB_URI=mongodb://mongodb:27017
+      - ORDER_DB_NAME=orderdb
+      - ORDER_DB_COLLECTION_NAME=orders
+    depends_on:
+      - mongodb
+      - rabbitmq
+
+  store-front:
+    image: naveedhossain/store-front:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - VUE_APP_PRODUCT_SERVICE_URL=http://localhost:3002/
+      - VUE_APP_ORDER_SERVICE_URL=http://localhost:3000/
+    depends_on:
+      - product-service
+      - order-service
+
+  store-admin:
+    image: naveedhossain/store-admin:latest
+    ports:
+      - "8081:8081"
+    environment:
+      - VUE_APP_PRODUCT_SERVICE_URL=http://localhost:3002/
+      - VUE_APP_MAKELINE_SERVICE_URL=http://localhost:3001/
+    depends_on:
+      - product-service
+      - makeline-service
