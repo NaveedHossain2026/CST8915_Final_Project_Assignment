@@ -60,4 +60,4 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 
 ## AI Tools Disclosure
 
-This project was developed with the assistance of Gemini(Google) and Claude for guidance on architecture design, documentation formatting, troubleshooting, code modifications, and the creation of Kubernetes YAML configuration files. All implementation, configuration, and testing were performed and validated manually.
+This project was developed with the assistance of Gemini(Google) and Claude for guidance on architecture design, documentation formatting, troubleshooting, code modifications, and the creation of Kubernetes YAML configuration files. All implementation, configuration, and testing were independently performed and validated by me.
