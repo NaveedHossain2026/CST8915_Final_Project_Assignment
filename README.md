@@ -30,7 +30,7 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 4.  **Access the Application:**
     Retrieve the External IPs for the frontend services:
     ```powershell
-    kubectl get service store-front store-admin
+    kubectl get svc
     ```
 
 ---
