@@ -4,7 +4,12 @@ Student Name: Naveed Hossain
 
 Student ID: 041081882
 
-## 1. Application Overview
+## Video Demonstration
+
+https://www.youtube.com/watch?v=fS4D2X9BBHs
+
+
+## Application Overview
 
 
 This project is a cloud-native, microservices-based retail application that resembles Best Buy’s website. The application allows customers to browse products and place orders, while employees can manage products and monitor operations from the admin interface.
@@ -17,7 +22,7 @@ Additionally, the software makes use of a CI/CD pipeline that uses GitHub Action
 
 Overall, the application demonstrates modern cloud-native design principles, including microservices architecture, containerization, and automated deployment.
 
-## 2. Deployment Instructions
+## Deployment Instructions
 
 
 ### Deployment Steps
@@ -39,7 +44,7 @@ Overall, the application demonstrates modern cloud-native design principles, inc
 
 ---
 
-## 3. Resource Links Table
+## Resource Links Table
 
 | Service Name | GitHub Repository | Docker Hub Image Link |
 | :--- | :--- | :--- |
